@@ -44,11 +44,11 @@ public class QuestRewardManager implements Listener
 		inv.setItem(18, backToMenu());
 		inv.setItem(26, editRewardAmount(reward.getRewardAmount()));
 
-		for (int i = 0; i < 27; i++)
-		{
-			if (inv.getItem(i) == null || inv.getItem(i).getType().equals(Material.AIR))
-				inv.setItem(i, glassPane(reward.getRewardAmount()));
-		}
+//		for (int i = 0; i < 27; i++)
+//		{
+//			if (inv.getItem(i) == null || inv.getItem(i).getType().equals(Material.AIR))
+//				inv.setItem(i, glassPane(reward.getRewardAmount()));
+//		}
 		p.openInventory(inv);
 	}
 	

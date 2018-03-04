@@ -15,7 +15,7 @@ public class TextAlignment
 	public static HashMap<UnicodeBlock, Double> CHARACTER_SIZEMAP = new HashMap<>();
 
 	public static final List<Character> ESCAPE_COLOR_CODES = Arrays.asList('k', 'l', 'm', 'n', 'o', 'r');
-	public static final List<String> IGNORE_CHARS = Arrays.asList("@", "\\", "#", "Â§", "&");
+	public static final List<String> IGNORE_CHARS = Arrays.asList("@", "\\", "#", "¡ì", "&");
 
 	public TextAlignment(String s, int line)
 	{
@@ -156,16 +156,16 @@ public class TextAlignment
 
 	private String getLastAppliedColor(String s)
 	{
-		String color = "Â§";
-		if (s.lastIndexOf("Â§") == -1)
-			return "Â§0";
-		if (ESCAPE_COLOR_CODES.contains(s.charAt(s.lastIndexOf("Â§") + 1)))
-			if (s.lastIndexOf("Â§") - 1 > 0)
-				color = "Â§" + s.charAt(s.lastIndexOf("Â§") - 1) + "Â§" + s.charAt(s.lastIndexOf("Â§") + 1);
+		String color = "¡ì";
+		if (s.lastIndexOf("¡ì") == -1)
+			return "¡ì0";
+		if (ESCAPE_COLOR_CODES.contains(s.charAt(s.lastIndexOf("¡ì") + 1)))
+			if (s.lastIndexOf("¡ì") - 1 > 0)
+				color = "¡ì" + s.charAt(s.lastIndexOf("¡ì") - 1) + "¡ì" + s.charAt(s.lastIndexOf("¡ì") + 1);
 			else
-				color += s.charAt(s.lastIndexOf("Â§") + 1);
+				color += s.charAt(s.lastIndexOf("¡ì") + 1);
 		else
-			color += s.charAt(s.lastIndexOf("Â§") + 1);
+			color += s.charAt(s.lastIndexOf("¡ì") + 1);
 		return color;
 	}
 	

@@ -1,5 +1,6 @@
 package me.Cutiemango.MangoQuest.commands;
 
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import com.nisovin.shopkeepers.Shopkeeper;
 import me.Cutiemango.MangoQuest.Main;
@@ -40,6 +41,8 @@ public class QuestCommand
 				{
 					case "list":
 						QuestBookGUIManager.openJourney(sender);
+						// “Ù–ß
+						sender.playSound(sender.getLocation(), Sound.ENTITY_HORSE_ARMOR, 1f, 1f);
 						return;
 					case "help":
 						sendHelp(sender);

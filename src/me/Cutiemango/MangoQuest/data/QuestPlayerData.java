@@ -624,18 +624,18 @@ public class QuestPlayerData
 		if (canTake(q, false))
 		{
 			if (hasFinished(q))
-				return I18n.locMsg("QuestGUI.RedoableQuestSymbol").replaceAll("Â§0", "Â§f") + ChatColor.BOLD + q.getQuestName();
+				return I18n.locMsg("QuestGUI.RedoableQuestSymbol").replaceAll("¡ì0", "¡ìf") + ChatColor.BOLD + q.getQuestName();
 			else
-				return I18n.locMsg("QuestGUI.NewQuestSymbol").replaceAll("Â§0", "Â§f") + ChatColor.BOLD + q.getQuestName();
+				return I18n.locMsg("QuestGUI.NewQuestSymbol").replaceAll("¡ì0", "¡ìf") + ChatColor.BOLD + q.getQuestName();
 		}
 		else
 		{
 			for (QuestObjectProgress op : getProgress(q).getCurrentObjects())
 			{
 				if (op.getObject() instanceof QuestObjectTalkToNPC)
-					return I18n.locMsg("QuestGUI.QuestReturnSymbol").replaceAll("Â§0", "Â§f") + ChatColor.BOLD + q.getQuestName();
+					return I18n.locMsg("QuestGUI.QuestReturnSymbol").replaceAll("¡ì0", "¡ìf") + ChatColor.BOLD + q.getQuestName();
 			}
-			return I18n.locMsg("QuestGUI.QuestDoingSymbol").replaceAll("Â§0", "Â§f") + ChatColor.BOLD + q.getQuestName();
+			return I18n.locMsg("QuestGUI.QuestDoingSymbol").replaceAll("¡ì0", "¡ìf") + ChatColor.BOLD + q.getQuestName();
 		}
 	}
 

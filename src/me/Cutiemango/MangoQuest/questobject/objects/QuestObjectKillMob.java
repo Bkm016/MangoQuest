@@ -100,7 +100,9 @@ public class QuestObjectKillMob extends NumerableObject implements EditorObject
 	@Override
 	public TextComponent toTextComponent(boolean isFinished)
 	{
-		if (hasCustomName())
+		if (isMythicObject())
+			return super.toTextComponent(ChatColor.stripColor(I18n.locMsg("QuestObject.KillMob")), isFinished, amount, mtmMob.getInternalName());
+		else if (hasCustomName())
 			return super.toTextComponent(ChatColor.stripColor(I18n.locMsg("QuestObject.KillMob")), isFinished, amount, customName);
 		else
 			return super.toTextComponent(ChatColor.stripColor(I18n.locMsg("QuestObject.KillMob")), isFinished, amount, type);
@@ -122,7 +124,7 @@ public class QuestObjectKillMob extends NumerableObject implements EditorObject
 		{
 			page.add(I18n.locMsg("QuestEditor.MythicMobs"));
 			if (isMythicObject())
-				page.add(mtmMob.getDisplayName() + "(" + mtmMob.getInternalName() + ")").endNormally();
+				page.add(mtmMob.getInternalName()).endNormally();
 			else
 				page.add(I18n.locMsg("QuestEditor.NotSet")).endNormally();
 			page.changeLine();

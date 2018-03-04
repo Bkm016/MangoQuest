@@ -110,7 +110,7 @@ public class QuestConfigLoader
 				if (advancement.getString("Advancements." + key + ".Description") != null)
 					ad.description(QuestChatManager.translateColor(advancement.getString("Advancements." + key + ".Description")));
 				if (advancement.getString("Advancements." + key + ".Frame") != null)
-					ad.frame(FrameType.valueOf(advancement.getString("Advancements." + key + ".Frame")));
+					ad.frame(FrameType.parse(advancement.getString("Advancements." + key + ".Frame")));
 				if (advancement.getString("Advancements." + key + ".Icon") != null)
 				{
 					if (advancement.getString("Advancements." + key + ".Icon").contains(":"))

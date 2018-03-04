@@ -1,8 +1,8 @@
 name: MangoQuest
 main: me.Cutiemango.MangoQuest.Main
-version: 1.7.8
-authors: [Cutiemango]
-depend: [Vault, Citizens]
+version: {$VERSION}
+authors: [Cutiemango, 坏黑]
+depend: [Vault, Citizens, TabooLib]
 commands:
    mq:
       description: Main command for MangoQuest

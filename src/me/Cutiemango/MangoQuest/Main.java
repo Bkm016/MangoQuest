@@ -20,14 +20,8 @@ import me.Cutiemango.MangoQuest.manager.config.QuestConfigManager;
 import me.Cutiemango.MangoQuest.manager.CustomObjectManager;
 import me.Cutiemango.MangoQuest.manager.PluginHooker;
 import me.Cutiemango.MangoQuest.versions.VersionHandler;
-import me.Cutiemango.MangoQuest.versions.Version_v1_10_R1;
 import me.Cutiemango.MangoQuest.versions.Version_v1_11_R1;
 import me.Cutiemango.MangoQuest.versions.Version_v1_12_R1;
-import me.Cutiemango.MangoQuest.versions.Version_v1_8_R1;
-import me.Cutiemango.MangoQuest.versions.Version_v1_8_R2;
-import me.Cutiemango.MangoQuest.versions.Version_v1_8_R3;
-import me.Cutiemango.MangoQuest.versions.Version_v1_9_R1;
-import me.Cutiemango.MangoQuest.versions.Version_v1_9_R2;
 
 public class Main extends JavaPlugin
 {
@@ -61,24 +55,6 @@ public class Main extends JavaPlugin
 		String version = Bukkit.getServer().getClass().getPackage().getName().replace(".", ",").split(",")[3];
 		switch (version)
 		{
-			case "v1_8_R1":
-				handler = new Version_v1_8_R1();
-				break;
-			case "v1_8_R2":
-				handler = new Version_v1_8_R2();
-				break;
-			case "v1_8_R3":
-				handler = new Version_v1_8_R3();
-				break;
-			case "v1_9_R1":
-				handler = new Version_v1_9_R1();
-				break;
-			case "v1_9_R2":
-				handler = new Version_v1_9_R2();
-				break;
-			case "v1_10_R1":
-				handler = new Version_v1_10_R1();
-				break;
 			case "v1_11_R1":
 				handler = new Version_v1_11_R1();
 				break;
@@ -111,14 +87,6 @@ public class Main extends JavaPlugin
 		}.runTaskLater(this, 5L);
 		
 		startCounter();
-		
-		try
-		{
-			Metrics metrics = new Metrics(this);
-			metrics.start();
-		}
-		catch (IOException e)
-		{}
 	}
 
 	@Override
@@ -131,6 +99,9 @@ public class Main extends JavaPlugin
 
 	public void reload()
 	{
+		// ÷ÿ‘ÿ”Ô—‘Œƒº˛
+		I18n.getLanguage().reload();
+		
 		savePlayers();
 		QuestStorage.clear();
 		QuestNPCManager.clear();

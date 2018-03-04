@@ -196,6 +196,7 @@ public class QuestConfigSaver
 		QuestReward r = q.getQuestReward();
 		quest.set(qpath + "Rewards.RewardAmount", r.getRewardAmount());
 		quest.set(qpath + "Rewards.InstantGiveReward", r.instantGiveReward());
+		quest.set(qpath + "Rewards.Choice", null);
 		if (r.hasItem())
 		{
 			int index = 0;

@@ -17,6 +17,7 @@ import me.Cutiemango.MangoQuest.conversation.FriendConversation;
 import me.Cutiemango.MangoQuest.data.QuestPlayerData;
 import me.Cutiemango.MangoQuest.manager.QuestChatManager;
 import me.Cutiemango.MangoQuest.model.Quest;
+import me.skymc.taboolib.inventory.ItemUtils;
 import net.citizensnpcs.api.npc.NPC;
 
 public class QuestUtil
@@ -170,22 +171,22 @@ public class QuestUtil
 
 	public static String translate(Material mat, short data)
 	{
-		if (!QuestStorage.TranslateMap.containsKey(mat))
-			return I18n.locMsg("Translation.UnknownItem");
-		if (QuestStorage.TranslateMap.get(mat).get(data) == null)
-			return QuestStorage.TranslateMap.get(mat).get((short)0);
-		else
-			return QuestStorage.TranslateMap.get(mat).get(data);
+		return translate(new ItemStack(mat, data));
+//		
+//		if (!QuestStorage.TranslateMap.containsKey(mat))
+//			return I18n.locMsg("Translation.UnknownItem");
+//		if (QuestStorage.TranslateMap.get(mat).get(data) == null)
+//			return QuestStorage.TranslateMap.get(mat).get((short)0);
+//		else
+//			return QuestStorage.TranslateMap.get(mat).get(data);
 	}
 	
 	public static String translate(ItemStack item)
 	{
-		if (item == null)
+		if (item == null) {
 			return I18n.locMsg("Translation.UnknownItem");
-		if (item.hasItemMeta() && item.getItemMeta().hasDisplayName())
-			return QuestChatManager.trimColor(item.getItemMeta().getDisplayName());
-		else
-			return translate(item.getType(), item.getDurability());	
+		}
+		return ItemUtils.getCustomName(item);
 	}
 
 	public static String translate(EntityType e)

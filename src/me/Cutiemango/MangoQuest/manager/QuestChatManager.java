@@ -34,7 +34,7 @@ public class QuestChatManager
 				escape = false;
 				continue;
 			}
-			if (targetText.charAt(i) == 'Â§')
+			if (targetText.charAt(i) == '¡ì')
 			{
 				if (nextTextSplit)
 				{
@@ -55,13 +55,13 @@ public class QuestChatManager
 	
 	public static void info(CommandSender p, String s)
 	{
-		p.sendMessage(QuestStorage.prefix + " " + translateColor(s));
+		p.sendMessage(translateColor(s));
 		return;
 	}
 
 	public static void error(CommandSender p, String s)
 	{
-		p.sendMessage(translateColor("&c&lError> " + s));
+		p.sendMessage("¡ì4" + s);
 		return;
 	}
 	

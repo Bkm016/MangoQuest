@@ -310,7 +310,7 @@ public class QuestAdvancement
 	{
 		try
 		{
-			Bukkit.getUnsafe().loadAdvancement(id, getJSON());
+			((CraftMagicNumbers) Bukkit.getUnsafe()).loadAdvancement(id, getJSON());
 			QuestChatManager.logCmd(Level.INFO, I18n.locMsg("Cmdlog.AdvancementLoading", id.getKey()));
 		}
 		catch (IllegalArgumentException e){}
@@ -320,7 +320,7 @@ public class QuestAdvancement
 	@SuppressWarnings("deprecation")
 	public QuestAdvancement remove()
 	{
-		Bukkit.getUnsafe().removeAdvancement(id);
+		((CraftMagicNumbers) Bukkit.getUnsafe()).removeAdvancement(id);
 		return this;
 	}
 
@@ -336,10 +336,10 @@ public class QuestAdvancement
 		return this;
 	}
 
-	public QuestAdvancement grant(Player... players)
+	public QuestAdvancement grant(Player... p)
 	{
 		Advancement advancement = getAdvancement();
-		for (Player player : players)
+		for (Player player : p)
 		{
 			if (!player.getAdvancementProgress(advancement).isDone())
 			{
@@ -388,6 +388,10 @@ public class QuestAdvancement
 		{
 			FrameType[] frameTypes = FrameType.values();
 			return frameTypes[(int) (Math.random() * (frameTypes.length - 1))];
+		}
+		
+		public static FrameType parse(String args) {
+			return FrameType.valueOf(args);
 		}
 
 		public String toString()
